@@ -26,7 +26,7 @@ node() {
                 stage('deploy artifact'){
                     sh """
                 rm -rf knowledge-platform
-                git clone https://github.com/project-sunbird/knowledge-platform.git -b ${params.kp_branch_or_tag}
+                git clone https://github.com/karthik-tarento/knowledge-platform.git -b ${params.kp_branch_or_tag}
                     """
                     ansiblePlaybook = "${currentWs}/ansible/kp_upload-schema.yml"
                     ansibleExtraArgs = "--extra-vars \" source_name=${currentWs}/knowledge-platform/schemas \" --vault-password-file /var/lib/jenkins/secrets/vault-pass"  
